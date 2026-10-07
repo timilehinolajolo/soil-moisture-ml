@@ -1,0 +1,20 @@
+# Rename the raw/processed folders to synthetic/field
+mkdir -p data/synthetic data/field
+mv data/raw/funaab_synthetic_data.csv data/synthetic/
+rm -rf data/raw data/processed
+
+# Create results folders
+mkdir -p results/figures results/metrics
+touch results/figures/.keep results/metrics/.keep
+
+# Create a standard Python .gitignore
+echo "venv/
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+.DS_Store" > .gitignore
+
+# Commit the new structure
+git add .
+git commit -m "chore: restructure data folders and add .gitignore"
+git push
